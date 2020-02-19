@@ -1,18 +1,29 @@
-pub fn html_start(title: &'_ str) -> String {
+const VERSION: &str = env!("CARGO_PKG_VERSION");
+
+pub fn html_start(title: &'_ str, lang: &'_ str) -> String {
     format!(
-        "<html>
-<head>
-    <title>{}</title>
-</head>
-<div id=\"page\">
-</html>",
-        title
+        "<!-- Generated with xworks {}-->
+<!DOCTYPE html>
+<html lang=\"{}\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <title>{}</title>
+        {}
+    </head>
+    <body>
+        <div id=\"page\">
+",
+        VERSION, lang, title, CSS,
     )
 }
 
-pub const HTML_END: &str = "</div></html>";
+pub const HTML_END: &str = "\
+        </div>
+    </body>
+</html>";
 
-pub const CSS: &str = "
+
+const CSS: &str = "
 <style>
 #page {
     margin: 20px;
@@ -23,7 +34,6 @@ html, body {
 	margin:0;
 	padding:0;
 	border: none;
- 	background: transparent;
 	font-family: \"Linux Libertine O\", serif;
 }
 
@@ -32,24 +42,18 @@ a {
    text-decoration: underline;
 }
 
-.table-of-contents a {
-   text-decoration: none;
-}
-
 .table-of-content-title {
     margin: 0;
     font-weight: bold;
     font-size: 100%;
     padding-left: 1em;
 }
-
 .table-of-content-subtitle {
     margin: 0;
     font-weight: normal;
     font-size: 90%;
     padding-left: 2em;
 }
-
 h1 {
     font-size: 130%;
     margin: 1.12em 0
@@ -62,7 +66,6 @@ h3 {
     font-size: 100%;
     margin: 0;
 }
-
 sup, sub {
     font-size: 80%;
     line-height: 0;

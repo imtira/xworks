@@ -6,11 +6,9 @@ use pulldown_cmark::{html, Event, Options, Parser, Tag};
 
 use std::fs;
 
-const VERSION: &str = env!("CARGO_PKG_VERSION");
-
 fn build_title(title_count: u32, title: &'_ str) -> String {
     format!(
-        "<h1 class=\"table-of-content-title\">{}. {}</h1>",
+        "\t\t\t<h1 class=\"table-of-content-title\">{}. {}</h1>\n",
         title_count, title,
     )
 }
@@ -18,13 +16,13 @@ fn build_title(title_count: u32, title: &'_ str) -> String {
 fn build_subtitle(title_count: u32, subtitle_count: u32, title: &'_ str, index: bool) -> String {
     if index {
         format!(
-            "<h2 class=\"table-of-content-subtitle\">{}.{}. {}</h1>",
+            "\t\t\t<h2 class=\"table-of-content-subtitle\">{}.{}. {}</h2>\n",
             title_count,
             subtitle_count.to_string(),
             title,
         )
     } else {
-        format!("<h2 class=\"table-of-content-subtitle\">{}</h1>", title)
+        format!("\t\t\t<h2 class=\"table-of-content-subtitle\">{}</h1>\n", title)
     }
 }
 
@@ -60,7 +58,7 @@ fn main() {
     let file_parser = Parser::new_ext(&file_content, options);
 
     let mut doc = {
-        let mut result = consts::html_start(&name);
+        let mut result = consts::html_start(&name, &args.lang);
         // Create table of contents
         result.push_str(&{
             let mut toc = String::new();
@@ -94,16 +92,13 @@ fn main() {
         });
 
         html::push_html(&mut result, file_parser);
-        result.push_str(consts::HTML_END);
-
         result
     };
 
     doc = format!(
-        "<!-- Generated with xworks {}-->\n{}\n{}",
-        VERSION,
+        "{}\n{}",
         doc,
-        consts::CSS,
+        consts::HTML_END,
     );
 
     match fs::write(&output_name, doc) {

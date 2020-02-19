@@ -4,12 +4,14 @@ use argparse::{ArgumentParser, Store, StoreFalse};
 pub struct Arguments {
     pub file: String,
     pub index_subtitles: bool,
+    pub lang: String,
 }
 
 pub fn parse() -> Arguments {
     let mut args = Arguments {
         file: String::new(),
         index_subtitles: true,
+        lang: String::from("EN"),
     };
 
     // Rust won't let you return args while there's a living mutable reference to it.
@@ -20,7 +22,13 @@ pub fn parse() -> Arguments {
         parser.refer(&mut args.index_subtitles).add_option(
             &["-i", "--no-index-subtitles"],
             StoreFalse,
-            "prepend indexes of subtitles.",
+            "prepend indexes of subtitles",
+        );
+
+        parser.refer(&mut args.lang).add_option(
+            &["-l", "--lang"],
+            Store,
+            "set the <html> lang attribute (default: EN)",
         );
 
         parser
