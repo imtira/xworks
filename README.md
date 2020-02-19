@@ -18,8 +18,8 @@ and a table of contents appended to the top. It'll look just like
 .. Well, not *exactly*. Xworks defaults to indexing sub-headings. If you'd like to disable this,
 you can use `-i`, or `--no-index-subheadings`.
 
-Xworks builds the table of contents by using `#` for headings and `##` for
-sub-headings. You can look at `example/site.[md, html]` for an example.
+Xworks builds the table of contents by using `#` for headings and `##` for sub-headings. You can
+look at `example/site.[md, html]` for an example.
 
 ## How do I use it?
 
@@ -31,9 +31,12 @@ That's it.
 
 ### Other options
 
-There's two optional arguments.
+There's three optional arguments.
 
 `-i`, `--no-index-subtitles`: As noted in *What do I get?*, this disables
 indexing subtitles (i.e. `1.1. Subsection of 1`).
 
 `-l`, `--lang`: Set the `<html>` lang attribute. By default, it's "EN".
+
+`-t`, `--title`: Set the page title. By default, it's the name of the Markdown file, without the
+extension.

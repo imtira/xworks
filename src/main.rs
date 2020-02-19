@@ -58,7 +58,7 @@ fn main() {
     let file_parser = Parser::new_ext(&file_content, options);
 
     let mut doc = {
-        let mut result = consts::html_start(&name, &args.lang);
+        let mut result = consts::html_start({if args.title.is_empty() { &name } else { &args.title } }, &args.lang);
         // Create table of contents
         result.push_str(&{
             let mut toc = String::new();

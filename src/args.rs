@@ -5,6 +5,7 @@ pub struct Arguments {
     pub file: String,
     pub index_subtitles: bool,
     pub lang: String,
+    pub title: String,
 }
 
 pub fn parse() -> Arguments {
@@ -12,6 +13,7 @@ pub fn parse() -> Arguments {
         file: String::new(),
         index_subtitles: true,
         lang: String::from("EN"),
+        title: String::new(),
     };
 
     // Rust won't let you return args while there's a living mutable reference to it.
@@ -29,6 +31,12 @@ pub fn parse() -> Arguments {
             &["-l", "--lang"],
             Store,
             "set the <html> lang attribute (default: EN)",
+        );
+
+        parser.refer(&mut args.title).add_option(
+            &["-t", "--title"],
+            Store,
+            "set the <title>. (default: name of the file, without the extension)"
         );
 
         parser
