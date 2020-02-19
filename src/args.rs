@@ -22,7 +22,7 @@ pub fn parse() -> Arguments {
         parser.refer(&mut args.index_subtitles).add_option(
             &["-i", "--no-index-subtitles"],
             StoreFalse,
-            "prepend indexes of subtitles",
+            "don't prepend indexes of subtitles",
         );
 
         parser.refer(&mut args.lang).add_option(

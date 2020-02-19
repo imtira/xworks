@@ -1,7 +1,8 @@
 # Xworks - a dead-simple FAQ-style static site generator.
 
 No, really. Dead. Simple. No frameworks, no extra style-sheets — It spits out a single HTML file,
-with 
+with 60~ lines of pretty in-line CSS. *And* it's prettier than
+[motherfuckingwebsite](http://motherfuckingwebsite.com/).
 
 ## What do I give it?
 
