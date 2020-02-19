@@ -1,6 +1,6 @@
 [package]
 name = "xworks"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["tira <t1ra@protonmail.com>"]
 edition = "2018"
 
@@ -8,3 +8,4 @@ edition = "2018"
 
 [dependencies]
 pulldown-cmark = { version = "0.6", features = ["simd"] }
+argparse = "0.2.2"
