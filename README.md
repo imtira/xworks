@@ -6,7 +6,7 @@ with 60~ lines of pretty in-line CSS. *And* it's prettier than
 
 ## What do I give it?
 
-A markdown file. Any file that follows the [Commonmark](https://commonmark.org/) specification is
+A markdown file. Any file that follows the [CommonMark](https://commonmark.org/) specification is
 allowed.
 
 ## What do I get?
