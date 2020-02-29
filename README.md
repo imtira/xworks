@@ -21,6 +21,8 @@ you can use `-i`, or `--no-index-subheadings`.
 Xworks builds the table of contents by using `#` for headings and `##` for sub-headings. You can
 look at `example/site.[md, html]` for an example.
 
+For a visual example of output, you can check out [t1ra.github.io/xworks](https://t1ra.gtihub.io/xworks).
+
 ## How do I use it?
 
 ### Make a page
