@@ -35,8 +35,7 @@ That's it.
 
 There's three optional arguments.
 
-`-i`, `--no-index-subtitles`: As noted in *What do I get?*, this disables
-indexing subtitles (i.e. `1.1. Subsection of 1`).
+`-i`, `--no-index-subtitles`: Disable subtitle indexing (i.e. `1.1. Subsection of 1`).
 
 `-l`, `--lang`: Set the `<html>` lang attribute. By default, it's "EN".
 
